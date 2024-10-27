@@ -104,11 +104,13 @@ export class PostComponent implements OnInit {
 
     populateUpdateForm(post: any) {
         this.loggedInUser = this.getUserId();
-        if (this.loggedInUser === post.author) {
+        if (this.loggedInUser === post.author?._id) {
             this.postUpdated = { ...post };
-            this.postUpdated.updatedAt = new Date();
-            this.postUpdated.createdAt = this.postUpdated.createdAt.slice(0, 10);
-            this.getUserDetails(post.author);
+            this.postUpdated.updatedAt = new Date().toISOString();
+            if (typeof this.postUpdated.createdAt === 'string') {
+                this.postUpdated.createdAt = this.postUpdated.createdAt.slice(0, 10);
+            }
+            this.getUserDetails(post.author._id);
             this.showUpdateForm = true;
         }
     }
@@ -130,7 +132,7 @@ export class PostComponent implements OnInit {
                         this.cancelUpdate();
                     },
                     error => {
-                        this.errorMessage = "Error in updating the post";
+                        this.errorMessage = "Error in updating the post: " + error.message;
                     });
             }
         }
@@ -159,7 +161,7 @@ export class PostComponent implements OnInit {
                         this.displayedPostList = [...this.postList];
                     },
                     error => {
-                        this.errorMessage = "Error in deleting the post";
+                        this.errorMessage = "Error in deleting the post: " + error.message;
                     });
             }
         }

@@ -42,7 +42,7 @@
       <button
         class="action-button-header"
         style="background-color: crimson"
-        (click)="confirmDelete(post)"
+        (click)="confirmDelete(post._id)"
       >
         Delete
       </button>
@@ -85,13 +85,12 @@
     </div>
     <div>
       <label for="updatePostContent">Post Content:</label>
-      <input
-        type="text"
+      <textarea
         id="updatePostContent"
         name="updatePostContent"
         [(ngModel)]="postUpdated.content"
         required
-      />
+      ></textarea>
     </div>
     <div>
       <label for="updatePostCategory">Post Category:</label>
@@ -132,7 +131,7 @@
         [(ngModel)]="postUpdated.attachment"
         required
       />
-      <img src="{{ postUpdated.attachment }}" />
+      <img [src]="postUpdated.attachment" />
     </div>
     <div>
       <button type="submit">Update Post</button>

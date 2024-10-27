@@ -6,6 +6,9 @@
             <div class="post-title">{{post.title}}</div>
         </div>
         <div class="post-content">{{post.content}}</div>
+        <div *ngIf="post.attachment">
+            <a [href]="post.attachment" target="_blank">View Attachment</a>
+        </div>
         <div class="post-actions">
             <span>{{ post.likes && post.likes.length }} likes</span>
         </div>

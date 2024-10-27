@@ -61,8 +61,7 @@ export class AppComponent implements OnInit, OnDestroy {
         this.checkAdminStatus(); // Check admin status on page load
       }
     }
-    // Call the method to check localStorage availability and perform operations
-    this.checkLocalStorage();
+    
   }
 
   ngOnDestroy(): void {
@@ -79,16 +78,7 @@ export class AppComponent implements OnInit, OnDestroy {
     this.sharedService.triggerLoginEvent();
     this.router.navigate(['/']);
   }
-  private checkLocalStorage(): void {
-    if (typeof window !== 'undefined' && localStorage) {
-      // Safe to use localStorage here
-      localStorage.setItem('key', 'value');
-      const storedValue = localStorage.getItem('key');
-      console.log(storedValue);
-    } else {
-      console.log('localStorage is not available on the server');
-    }
-  }
+  
   register(): void {
     this.sharedService.triggerRegisterEvent();
     this.router.navigate(['/']);
