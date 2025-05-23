@@ -10,6 +10,7 @@
       <li *ngFor="let post of popularPosts">
         <h3>{{ post.title }}</h3>
         <p>{{ post.content }}</p>
+        <img [src]="post.attachment" alt="Post Attachment" style="max-width: 100%; height: auto;">
         <p>Likes: {{ post.likes.length }}</p>
         <button (click)="deletePost(post._id)">Delete Post</button>
       </li>
@@ -23,11 +24,10 @@
       <li *ngFor="let post of regularPosts">
         <h3>{{ post.title }}</h3>
         <p>{{ post.content }}</p>
+        <img [src]="post.attachment" alt="Post Attachment" style="max-width: 100%; height: auto;">
         <p>Likes: {{ post.likes.length }}</p>
         <button (click)="deletePost(post._id)">Delete Post</button>
       </li>
     </ul>
   </div>
-
-  
 </div>

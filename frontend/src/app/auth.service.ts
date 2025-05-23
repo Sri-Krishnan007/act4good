@@ -31,7 +31,7 @@ interface AuthResponse {
   providedIn: 'root'
 })
 export class AuthService {
-  private baseUrl = 'http://localhost:5000/api/auth';
+  private baseUrl = 'https://act4good.onrender.com/api/auth';
   private isAuthenticatedSubject = new BehaviorSubject<boolean>(false);
   loggedInEvent: EventEmitter<void> = new EventEmitter();
 

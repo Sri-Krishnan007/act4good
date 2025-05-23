@@ -7,7 +7,8 @@
         </div>
         <div class="post-content">{{post.content}}</div>
         <div *ngIf="post.attachment">
-            <a [href]="post.attachment" target="_blank">View Attachment</a>
+            <!-- Log the attachment URL to the console -->
+            <img [src]="post.attachment" alt="Post Attachment" style="max-width: 100%; height: auto;" (error)="onImageError($event)" />
         </div>
         <div class="post-actions">
             <span>{{ post.likes && post.likes.length }} likes</span>

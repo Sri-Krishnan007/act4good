@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
     providedIn: 'root'
 })
 export class LikeService {
-    private baseUrl = "http://localhost:5000";
+    private baseUrl = "https://act4good.onrender.com";
     constructor(private http: HttpClient) { }
 
     toggleLike(postId: string, token: string): Observable<any> {

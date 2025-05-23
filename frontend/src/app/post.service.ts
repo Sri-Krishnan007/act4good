@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
     providedIn: 'root'
 })
 export class PostService {
-    private baseUrl = 'http://localhost:5000/api/post';
+    private baseUrl = 'https://act4good.onrender.com/api/post';
     constructor(private httpClient: HttpClient) { }
 
     getAllPosts(): Observable<any[]> {

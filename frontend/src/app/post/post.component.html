@@ -21,7 +21,8 @@
     <div class="post-content">{{ post.content }}</div>
     <div class="post-attachment">
       <a [href]="post.attachment" target="_blank">View Attachment</a>
-      <img *ngIf="isImage(post.attachment)" [src]="post.attachment" alt="Attachment Image" />
+      <img [src]="post.attachment" alt="Post Attachment" style="width: 100%; height: auto; max-width: 200px;" />
+
     </div>
     <div class="post-actions">
       <button class="action-button" (click)="toggleLike(post._id)">
